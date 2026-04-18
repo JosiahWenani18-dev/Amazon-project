@@ -73,7 +73,7 @@ function Cart(localStorageKey) {
 
       matchingItem.deliveryOptionId = deliveryOptionId;
 
-      thissaveToStorage();
+      this.saveToStorage();
     }
   };
 
