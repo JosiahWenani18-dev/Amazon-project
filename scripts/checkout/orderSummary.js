@@ -101,7 +101,6 @@ export function renderOrderSummary() {
   renderPaymentSummary();
 
   document.querySelector('.js-order-summary'). innerHTML = cartSummaryHTML;
-  console.log(cartSummaryHTML); 
 
   document.querySelectorAll('.js-delete-quantity-link').forEach((link) => {
     link.addEventListener('click', () => {
