@@ -22,6 +22,23 @@ class Product {
   getPrice() {
     return `$${formatCurrency(this.priceCents)}`;
   }
+
+  extraInfoHtml (){
+    return ''; 
+  }
+}
+
+class Clothing extends Product{
+  sizeChartLink;
+
+  constructor (productDetails) {
+    super(productDetails);
+    this.sizeChartLink = productDetails.sizeChartLink;
+  }
+
+  extraInfoHtml () {
+    return `<a href="images/clothing-size-chart.png" terget="_blank">Size chart</a>`;
+  }
 }
 
 export function getProduct(productId) {
@@ -696,4 +713,9 @@ export const products = [
       "mens"
     ]
   }
-].map(productDetails => new Product(productDetails));
+].map((productDetails) => {
+  if (productDetails.type === 'clothing') {
+    return new Clothing(productDetails);
+  }
+    return new Product(productDetails);
+});
